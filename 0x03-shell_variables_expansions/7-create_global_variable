@@ -1,2 +1,2 @@
 #!/bin/bash
-HOLBERTON="Betty" | export HOLBERTON=/etc/profile
+export HOLBERTON="Betty"
