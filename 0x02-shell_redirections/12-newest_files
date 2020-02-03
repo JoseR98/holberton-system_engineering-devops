@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -l | sort -rk 6 | head
+ls -t | head
