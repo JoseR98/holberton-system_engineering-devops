@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# Displays Holberton School 20 times with other words in lines 4, 9, 17
 I=1
 while [ $I -lt 21 ]
 do

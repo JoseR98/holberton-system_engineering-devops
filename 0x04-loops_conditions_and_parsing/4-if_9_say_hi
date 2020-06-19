@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# Displays Holberton School 10 times and Hi in the 9 line
 I=0
 while [ $I -lt 10 ]
 do

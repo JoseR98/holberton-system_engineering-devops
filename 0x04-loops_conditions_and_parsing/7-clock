@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# Display the clock hours
 I=1
 HOUR=1
 echo "Hour: 0"
