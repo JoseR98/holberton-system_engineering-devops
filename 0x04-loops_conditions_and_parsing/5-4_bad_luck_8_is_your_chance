@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+I=0
+while [ $I -lt 10 ]
+do
+    if [ $I -eq 3 ]
+    then
+        echo "bad luck"
+    elif [ $I -eq 7 ]
+    then
+        echo "good luck"
+    else
+        echo "Holberton School"
+    fi
+    let I++
+done

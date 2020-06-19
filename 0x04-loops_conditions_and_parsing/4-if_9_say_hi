@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+I=0
+while [ $I -lt 10 ]
+do
+    if [ $I -eq 9 ]
+    then
+        echo "Hi"
+    fi
+    echo "Holberton School"
+    let I++
+done
