@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
-# Display IP and HTTP status code for each user
-awk '{print $1, $9}'
+# Parse apache log file and display IP and HTTP status code
+file="apache-acces.log"
+cat $file | awk '{print $1, $9}'
