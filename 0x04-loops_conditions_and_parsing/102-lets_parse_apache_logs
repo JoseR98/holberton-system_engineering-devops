@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Display IP and HTTP status code for each user
+awk '{print $1, $9}'
