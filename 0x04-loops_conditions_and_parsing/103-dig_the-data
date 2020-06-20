@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 # Parse apache log file and ordered from the greatest to the lowest number of IP occurrences
 file="apache-access.log"
-awk '{count[$1, $9]++} END {for (word in count) print count[word], word}' $file | sort -nr
+awk '{count[$1, $9]++} END {for (word in count) print count[word], word, $9}' $file | sort -nr
