@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-#
+# Catch signal SIGTERM
 while ((1))
 do
     echo "To infinity and beyond"
