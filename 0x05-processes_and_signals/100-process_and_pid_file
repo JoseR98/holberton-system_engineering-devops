@@ -2,10 +2,18 @@
 # Creates file containing own pid and change default response actions of signals
 sudo touch /var/run/holbertonscript.pid
 sudo chmod 666 /var/run/holbertonscript.pid
-echo $BASHPID >> /var/run/holbertonscript.pid
-trap "echo I hate the kill command" SIGTERM
+echo $$ >> /var/run/holbertonscript.pid
+
+function handler_sigterm()
+{
+    echo I hate the kill command
+    rm /var/run/holbertonscript.pid
+}
+
+trap handler_sigterm SIGTERM
 trap "echo Y U no love me?!" SIGINT
-trap "rm /var/run/holbertonscript.pid" SIGQUIT, SIGTERM
+trap "rm /var/run/holbertonscript.pid" SIGQUIT
+
 while ((1))
 do
     echo "To infinity and beyond"
