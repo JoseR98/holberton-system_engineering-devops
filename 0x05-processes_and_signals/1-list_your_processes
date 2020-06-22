@@ -1,2 +1,3 @@
 #!/usr/bin/env bash
+#list processes in user oriented format
 ps u -AH
