@@ -3,6 +3,6 @@
 sudo apt-get update
 sudo apt-get -y install nginx
 # set redirection
-sed -i "/listen 80 default_server/a error_page 404 /404.html;" /etc/nginx/sites-available/default
+sed -i '/listen 80 default_server/a error_page 404 /404.html;' /etc/nginx/sites-available/default
 service nginx reload
 service nginx start
