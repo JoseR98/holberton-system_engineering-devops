@@ -1,13 +1,18 @@
 #!/usr/bin/env bash
 # install nginx web server to listen on port 80
 
+
 sudo apt-get update
 sudo apt-get -y install nginx
+# Listen on port 80
 sudo ufw allow 'Nginx HTTP'
+# create page with the string Holberton School and start nginx
 echo "Holberton School" > /var/www/html/index.html
+# create page 404 not found with the string Ceci n'est pas une page
 echo "Ceci n'est pas une page" > /var/www/html/404.html
 sed -i '/listen 80 default_server/a rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;' /etc/nginx/sites-available/default
 sed -i '/listen 80 default_server/a \\terror_page 404 /404.html;' /etc/nginx/sites-available/default
+# set header X-served-By
 sudo sed -i "/listen 80 default_server/a add_header X-Served-By '$HOSTNAME';" /etc/nginx/sites-available/default
 sudo service nginx reload
 sudo service nginx start
