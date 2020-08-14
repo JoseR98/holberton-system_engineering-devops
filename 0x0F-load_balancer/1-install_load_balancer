@@ -1,10 +1,11 @@
 #!/usr/bin/env bash
 #install HAproxy software load balancer
-apt-get install software-properties-common
 
 sudo apt-get -y update
 sudo apt-get -y install haproxy
+#Enable HAproxy can be managed via an init script
 echo "ENABLED=1" >> /etc/default/haproxy
+#Set configuration for servers. Frontend specify IP and ports, Backend receive the request
 cat >> /etc/haproxy/haproxy.cfg << SERV_CONF
 frontend front
     bind *:80
