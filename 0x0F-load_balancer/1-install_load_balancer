@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 #install HAproxy software load balancer
+apt-get install software-properties-common
 
 sudo apt-get -y update
 sudo apt-get -y install haproxy
@@ -13,6 +14,5 @@ backend back
     balance roundrobin
     server 1462-web-01 35.243.225.26:80 check
     server 1462-web-02 34.75.87.53:80 check
-sudo service haproxy restart
 SERV_CONF
 sudo service haproxy restart
