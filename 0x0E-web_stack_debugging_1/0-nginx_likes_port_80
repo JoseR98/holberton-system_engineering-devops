@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
 # Fix listening from port 8080 to 80
-sudo sed -i 's/8080/80/g' /etc/nginx/sites-enabled/default
+sudo sed -i 's/8080/80/' /etc/nginx/sites-enable/default
+sudo rm /etc/nginx/sites-enable/default~
 sudo service nginx restart
