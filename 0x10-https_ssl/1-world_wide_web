@@ -4,7 +4,7 @@ get_domains () {
     Domains=("www.joserestrepo.tech" "lb-01.joserestrepo.tech" "web-01.joserestrepo.tech" "web-02.joserestrepo.tech")
     for domain in ${Domains[*]};
     do
-        dig $domain | grep -A1 'ANSWER SECTION:' | grep $domain | awk '{ $1 = substr($1,$1,index($1,".")-1) }{ print "The subdomain " $1 " is a " $4 " record and points to " $5 }'
+        dig $domain | grep -A1 'ANSWER SECTION:' | tail -1 | awk '{ $1 = substr($1,$1,index($1,".")-1) }{ print "The subdomain " $1 " is a " $4 " record and points to " $5 }'
     done
 }
 
@@ -14,5 +14,5 @@ then
 elif [ "$#" -eq 2 ];
 then
     domain="$2.$1"
-    dig $domain | grep -A1 'ANSWER SECTION:' | grep $domain | awk '{ $1 = substr($1,$1,index($1,".")-1) }{ print "The subdomain " $1 " is a " $4 " record and points to " $5 }'
+    dig $domain | grep -A1 'ANSWER SECTION:' | tail -1 | awk '{ $1 = substr($1,$1,index($1,".")-1) }{ print "The subdomain " $1 " is a " $4 " record and points to " $5 }'
 fi
