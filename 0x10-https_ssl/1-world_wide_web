@@ -4,15 +4,17 @@
 
 if [ $# -eq 2 ]
 then
-	domain="$2.$1"
-	output=$(dig "$domain" | grep -A1 'ANSWER SECTION:' | tail -1 | awk '{ $1 = substr($1,$1,index($1,".")-1) }{ print "The subdomain " $1 " is a " $4 " record and points to " $5 }')
-	echo "$output"
+    subdomain="$2.$1"
+    ip=$(dig "$subdomain" | grep -A1 'ANSWER SECTION:' | tail -1 | awk '{print $5}')
+    record_type=$(dig "$subdomain" | grep -A1 'ANSWER SECTION:' | tail -1 | awk '{print $4}')
+    echo "The subdomain $2 is a $record_type record and points to $ip"
 elif [ $# -eq 1 ]
 then
-	for subdomain in 'www' 'lb-01' 'web-01' 'web-02'
-	do
-		domain="$subdomain.$1"
-		output=$(dig "$domain" | grep -A1 'ANSWER SECTION:' | tail -1 | awk '{ $1 = substr($1,$1,index($1,".")-1) }{ print "The subdomain " $1 " is a " $4 " record and points to " $5 }')
-		echo "$output"
-	done
+    for subdomain in 'www' 'lb-01' 'web-01' 'web-02'
+    do
+        domain="$subdomain.$1"
+        ip=$(dig "$domain" | grep -A1 'ANSWER SECTION:' | tail -1 | awk '{print $5}')
+        record_type=$(dig "$domain" | grep -A1 'ANSWER SECTION:' | tail -1 | awk '{print $4}')
+        echo "The subdomain $subdomain is a $record_type record and points to $ip"
+    done
 fi
