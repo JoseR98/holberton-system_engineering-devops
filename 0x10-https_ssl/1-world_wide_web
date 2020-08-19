@@ -2,15 +2,14 @@
 # Show subdomain record type and ip it points to
 
 
-if [ $# -eq 2 ];
+if [ $# -eq 2 ]
 then
     domain="$2.$1"
     output=$(dig "$domain" | grep -A1 'ANSWER SECTION:' | tail -1 | awk '{ $1 = substr($1,$1,index($1,".")-1) }{ print "The subdomain " $1 " is a " $4 " record and points to " $5 }')
     echo "$output"
-elif [ $# -eq 1 ];
+elif [ $# -eq 1 ]
 then
-    Domains=("www" "lb-01" "web-01" "web-02")
-    for subdomain in ${Domains[*]};
+    for subdomain in 'www' 'lb-01' 'web-01' 'web-02'
     do
         domain="$subdomain.$1"
         output=$(dig "$domain" | grep -A1 'ANSWER SECTION:' | tail -1 | awk '{ $1 = substr($1,$1,index($1,".")-1) }{ print "The subdomain " $1 " is a " $4 " record and points to " $5 }')
