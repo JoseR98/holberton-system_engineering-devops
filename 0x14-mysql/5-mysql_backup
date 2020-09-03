@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+# backup of database
 if [ $# -eq 1 ]
 then
 mysqldump -u root -p"$1" --all-databases > backup.sql
