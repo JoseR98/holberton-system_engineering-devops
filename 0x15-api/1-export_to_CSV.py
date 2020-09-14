@@ -18,10 +18,10 @@ if __name__ == "__main__":
 
         user_name = employee.json()[0].get('username')
 
-        with open('{}.csv'.format(user_id), 'w', newline='') as csv_file:
-            fieldnames = ["USER_ID", "USERNAME\
+        with open('{}.csv'.format(user_id), 'w', newline='') as o:
+            f = ["USER_ID", "USERNAME\
 ", "TASK_COMPLETED_STATUS", "TASK_TITLE"]
-            writer = csv.DictWriter(csv_file, fieldnames=fieldnames, quoting=csv.QUOTE_ALL)
+            writer = csv.DictWriter(o, fieldnames=f, quoting=csv.QUOTE_ALL)
             for task in tasks.json():
                 result = {"USER_ID": user_id, "USERNAME\
 ": user_name, "TASK_TITLE": task.get('title')}
