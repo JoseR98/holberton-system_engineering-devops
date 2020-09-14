@@ -27,4 +27,4 @@ if __name__ == "__main__":
     ".format(user_name, done_tasks, total_tasks))
         for task in tasks.json():
             if task.get('completed'):
-                print("\t{}".format(task.get('title')))
+                print("\t {}".format(task.get('title')))
