@@ -16,7 +16,7 @@ if __name__ == "__main__":
         tasks = requests.get('https://jsonplaceholder.typicode.com/todos',
                              params={'userId':  user_id})
 
-        user_name = employee.json()[0].get('name')
+        user_name = employee.json()[0].get('username')
 
     data = {}
     list_tasks = []
