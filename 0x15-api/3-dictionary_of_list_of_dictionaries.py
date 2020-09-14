@@ -19,7 +19,7 @@ if __name__ == "__main__":
             if task.get('userId') == user.get('id'):
                 new_task['task'] = task.get('title')
                 new_task['completed'] = task.get('completed')
-                new_task['username'] = user.get('name')
+                new_task['username'] = user.get('username')
                 list_tasks.append(new_task)
         data['{}'.format(user.get('id'))] = list_tasks
 
