@@ -4,7 +4,6 @@ export data as json file"""
 
 import json
 import requests
-import sys
 
 if __name__ == "__main__":
 
@@ -12,8 +11,8 @@ if __name__ == "__main__":
     tasks = requests.get('https://jsonplaceholder.typicode.com/todos')
 
     data = {}
-    list_tasks = []
     for user in employee.json():
+        list_tasks = []
         for task in tasks.json():
             new_task = {}
             if task.get('userId') == user.get('id'):
