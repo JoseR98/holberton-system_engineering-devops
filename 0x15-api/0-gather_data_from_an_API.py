@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" """
+"""Gather data about completed tasks for specific user"""
 
 import requests
 import sys
