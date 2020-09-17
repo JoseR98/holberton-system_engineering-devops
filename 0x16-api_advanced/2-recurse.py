@@ -23,7 +23,7 @@ def recurse(subreddit, hot_list=[], after=None):
         return None
 
     after = response.json().get('data').get('after')
-    # print articles for the given subreddit in the current page
+    # append articles for the given subreddit in the current page
     for post in response.json().get('data').get('children'):
         hot_list.append(post.get('data').get('title'))
 
