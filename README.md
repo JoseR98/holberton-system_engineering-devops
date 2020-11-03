@@ -8,6 +8,9 @@ The projects cover:
 - Shell Basics
 - Shell Permissions
 - Shell Variables And Expansions
+- Networking understanding
+- Web Infrastructure Design
+- Web Stack debugging
 
 ## Projects
 1. [0x00-shell_basics](./0x00-shell_basics)
